@@ -7,17 +7,17 @@ test -z "${ASDF_DEBUG}" || set -x
 
 if [ -s .tool-versions ]; then
   echo "Installing plugins..."
-  asdf plugin-list-all > /dev/null 2>&1
+  asdf plugin list all > /dev/null 2>&1
   for plugin in $(grep -v '^[[:space:]]*#' .tool-versions | cut -s -d ' ' -f 1); do
-    if [ -n "$(asdf plugin-list | grep -w ^$plugin)" ]; then
+    if [ -n "$(asdf plugin list | grep -w ^$plugin)" ]; then
       echo "= $plugin: already installed"
     else
-      if [ -n "$(ls -1 "$HOME/.asdf/repository/plugins" | grep -w $plugin)" ]; then
+      #if [ -n "$(ls -1 "$HOME/.asdf/repository/plugins" | grep -w $plugin)" ]; then
           echo "+ $plugin: installing"
-          asdf plugin-add $plugin
-      else
-        echo "- $plugin: not found"
-      fi
+          asdf plugin add $plugin
+      #else
+      #  echo "- $plugin: not found"
+      #fi
     fi
   done
   echo "Installing tools..."
