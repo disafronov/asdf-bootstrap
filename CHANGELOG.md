@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2025-07-03
+
+### 🚀 Features
+
+- Update syntax
+
 ## [1.0.1] - 2025-03-17
 
 ### 🚜 Refactor
